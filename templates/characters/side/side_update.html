@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title%} Side characters update {% endblock title %}
+
+{% block content %}
+
+  <h1>Обновите информацию о второстепенном персонаже</h1>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Обновить</button>
+
+  </form>
+
+{% endblock content %}

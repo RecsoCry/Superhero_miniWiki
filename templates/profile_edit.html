@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Изменить Профиль {% endblock %}
+
+{% block content %}
+    <h1>Edit Your Profile</h1>
+    <form action="" method="post" >
+          {% csrf_token %}
+        <div class="field">
+          {{ form.as_p }}
+        </div>
+          <input type="submit" value="Update" />
+    </form>
+
+
+
+
+{% endblock content %}

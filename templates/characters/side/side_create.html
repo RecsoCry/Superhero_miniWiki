@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title%} Side characters create {% endblock title %}
+
+{% block content %}
+
+  <h1>Создайте новою страницу о второстепенном персонаже!</h1>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Создать</button>
+
+  </form>
+
+{% endblock content %}

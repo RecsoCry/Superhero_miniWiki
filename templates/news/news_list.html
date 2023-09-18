@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title%} News List {% endblock title %}
+
+
+{% block content %}
+<a href="{% url 'news_create'  %}" class="gradient-button">Создать новую новость</a>
+{% for news in object_list %}
+    <section class="ant-section__ant017_text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        {% if news.news_img %}
+                        <img src="{{ news.news_img.url }}" class="ant017_text-img-responsive" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="ant017_text-section-header ant017_text-section-header--tire ant017_text-section-header--small-margin">
+                            <h2>
+                                 <a href="{% url 'news_detail' news.pk %}">{{ news.title }}</a>
+                            </h2>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+{% endfor %}
+<style>
+    .gradient-button {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.gradient-button:hover {
+  background-position: right center;
+}
+</style>
+{% endblock content %}

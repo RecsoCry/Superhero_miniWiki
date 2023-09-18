@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/meanmenu.css' %}">
+	<link rel="stylesheet" href="{% static 'css/list.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+
+</head>
+<body>
+
+    <header class="ant109_header-wrapper">
+		<div class="ant109_header-header-main">
+			<div class="ant109_header-header-border d-none d-md-block">
+				<div class="container-fluid">
+					<div class="row d-flex align-items-center">
+						<div class="col-xl-8 col-lg-8 col-md-10">
+							<div class="ant109_header-header-info">
+								{% if user.is_authenticated %}
+								<ul>
+									<li><a href="{% url 'profile' user.pk %}" class="fas fa-phone">{{user.username}}</a></li>
+									<li> <a href="{% url 'logout' %}" class="fas fa-envelope">Выйти</a></li>
+									<li> <form action="{% url 'search_results' %}" method="get">
+            								<input name="q" type="text" placeholder="Поиск" aria-label="Search" >
+        								</form>
+									</li>
+								</ul>
+								{% else %}
+								<ul>
+									<li><a href="{% url 'login' %}" class="fas fa-phone">Войти</a> </li>
+									<li> <a href="{% url 'signup' %}" class="fas fa-envelope">Регистрация </a></li>
+									<li> <form action="" method="get">
+            								<input name="q" type="text" placeholder="Поиск" aria-label="Search" >
+        								</form>
+									</li>
+								</ul>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ant109_header-header-bottm ant109_header-header-sticky">
+				<div class="container-fluid d-flex justify-content-between align-items-center">
+
+					<div class="ant109_header-min-menu">
+						<nav id="ant109_header-mobile-menu">
+							<ul>
+								<li><a href="{% url 'home' %}">Главная</a></li>
+								<li><a href="{% url 'hero_list' %}">Герои</a></li>
+								<li><a href="{% url 'villains_list' %}">Злодеи</a></li>
+								<li><a href="{% url 'side_list' %}">Персонажи</a></li>
+								<li><a href="{% url 'film_list' %}">Фильмы и сериалы</a></li>
+								<li><a href="{% url 'news_list' %}">Инфоблог</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="ant109_header-mobile-menu-active">
+					<div class="container-fluid">
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="ant109_header-mobile-menu"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+{% block content %}
+
+
+{% endblock content %}
+{% block javascript %}
+    <script src="{% static 'js/nicepage.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock javascript %}
+
+
+
+</body>
+</html>

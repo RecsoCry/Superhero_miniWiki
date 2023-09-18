@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+ <main>
+
+    <section class="ant-section__ant054_promo">
+
+        <div class="ant054_promo-home-area ant054_promo-flex-bc ant054_promo-padding-b-medium">
+            <div class="container ant054_promo-zindex-1 text-center">
+
+                <!-- INTRO TEXT -->
+
+
+            </div>
+        </div>
+
+    </section>
+ </main>
+<style>
+   main {
+    margin-left: 70px;
+    background:  url({% static 'image/background3.jpg' %});
+    background-repeat: no-repeat;
+    background-size: contain;
+
+   }
+   .ant054_promo-home-area {
+    width: auto;
+    min-height: 100vh;
+    }
+    .ant054_promo-heading {
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center
+    margin-left: 50px;
+    }
+
+    .ant054_promo-heading-sub {
+    font-size: 20px;
+    text-align: left
+    margin-left: 80px;
+    }
+    .ant054_promo-intro-text {
+    color: #fff;
+    text-align:left;
+    }
+ </style>
+{% endblock content %}

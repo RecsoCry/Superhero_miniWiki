@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %} Профиль {% endblock %}
+
+{% block content %}
+<section class="ant-section__ant017_text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="img/ant017_text/about-img-1.png" class="ant017_text-img-responsive" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ant017_text-section-header ant017_text-section-header--tire ant017_text-section-header--small-margin">
+
+                            <h2>
+                                Профиль пользователя<br>
+                            </h2>
+                        <ul class="ant017_text-check-list">
+                            <li>
+                                Псевдоним: <span>{{user.username}}</span>
+                            </li>
+                            <li>
+                                Имя: <span>{{user.first_name}}</span>
+                            </li>
+                            <li>
+                                Фамилия: <span>{{user.last_name}}</span>
+                            </li>
+                            <li>
+                                Почта: <span>{{user.email}}</span>
+                            </li>
+                            <li>
+                                Возраст: <span>{{user.age}}</span>
+                            </li>
+                        </ul>
+
+
+
+
+                        <a href="{% url 'profile_edit' user.pk %}" class="gradient-button">Изменить профиль</a>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<style>
+    .gradient-button {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.gradient-button:hover {
+  background-position: right center;
+}
+</style>
+{% endblock content %}

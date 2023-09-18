@@ -1,0 +1,89 @@
+.ant054_promo-home-area {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.ant054_promo-zindex-1 {
+    z-index: 1;
+}
+
+.ant054_promo-flex-bc {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.ant054_promo-padding-b-medium {
+    padding-bottom: 7.14285714rem;
+}
+
+.ant054_promo-home-area .container {
+    opacity: 1;
+    transition: all 0.4s ease-out;
+    position: relative;
+}
+
+.ckav-body .ant054_promo-zindex-0 {
+    z-index: 0;
+}
+.ant054_promo-bg-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.ant054_promo-zindex-2 {
+    z-index: 2;
+}
+
+.ant054_promo-zindex-3 {
+    z-index: 3;
+}
+.ant054_promo-full-wh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.ant054_promo-bg-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.ant054_promo-bg-cc {
+    background-position: center center;
+}
+[data-bgholder="background-image"] {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ant054_promo-width-80 {
+    width: 80%;
+}
+.ant054_promo-margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ant054_promo-intro-text {
+    color: #fff;
+}
+
+.ant054_promo-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+
+.ant054_promo-heading {
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.ant054_promo-heading-sub {
+    font-size: 20px;
+}
+

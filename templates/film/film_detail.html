@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block title%} Film  Detail {% endblock title %}
+
+{% block content %}
+        <section class="ant-section__ant017_text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        {% if film.movie_img %}
+                        <img src="{{ film.movie_img.url }}" width="500px" height="100px" class="ant017_text-img-responsive" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="ant017_text-section-header ant017_text-section-header--tire ant017_text-section-header--small-margin">
+
+                            <h2>
+                                {{ film.title }}
+                            </h2>
+                        </div>
+
+                        <p class="ant017_text-text-margin-bot">
+                            <h2>Сюжет:</h2><br> <span>{{ film.plot }}</span>
+                        </p>
+
+                        <ul class="ant017_text-check-list">
+                            <li>
+                                Рейтинг <span>{{ film.rating }}</span>
+                            </li>
+                            <li>
+                                Год выпуска <span>{{ film.year }}</span>
+                            </li>
+                        </ul>
+
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'film_update' film.pk %}" class="gradient-button">Изменить страницу фильма</a>
+                        <a href="{% url 'film_delete' film.pk %}" class="gradient-button">Удалить страницу фильма</a>
+                    {% endif %}
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+{% if user.is_authenticated %}
+<a href="{% url 'film_comment' film.pk %}" class="custom-btn btn-9"> Оставить комментарий</a>
+
+   <div>
+        <h2 >
+            Список комментариев:
+        </h2>
+      {% for comment in film.comments.all %}
+      <div class="containerr">
+          <p><span>{{ comment.author }}</span></p>
+          <p>{{ comment.comment }}</p>
+      </div>
+        {% endfor %}
+  </div>
+{% endif %}
+
+  <style>
+.gradient-button {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.gradient-button:hover {
+  background-position: right center;
+}
+    .custom-btn {
+  width: 150px;
+  height:60px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+  left: 600px
+
+}
+.btn-9 {
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.btn-9:after {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   background-color: #1fd1f9;
+background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  transition: all 0.3s ease;
+}
+.btn-9:hover {
+  background: transparent;
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  color: #fff;
+}
+.btn-9:hover:after {
+  -webkit-transform: scale(2) rotate(180deg);
+  transform: scale(2) rotate(180deg);
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+.containerr {
+    border: 2px solid #ccc;
+
+    border-radius: 5px;
+    padding: 16px;
+    margin: 20px 30px;
+}
+
+
+}
+
+/* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+.containerr img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Increase the font-size of a span element */
+.containerr span {
+    font-size: 20px;
+    margin-right: 15px;
+}
+</style>
+
+{% endblock content %}
